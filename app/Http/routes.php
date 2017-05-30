@@ -22,8 +22,12 @@ Route::group(['prefix'=>'admins','namespace'=>'Admin','middleware'=>['admin.logi
 	Route::any('order','CategoryController@order');
 	Route::resource('category','CategoryController');
 	Route::resource('article','ArticleController');
-	Route::any('upload','ArticleController@upload');
+	Route::any('upload','CommonController@upload');
+	Route::resource('links','LinksController');
+	Route::resource('nav','NavController');
+	Route::resource('conf','ConfController');
+	Route::post('modify','ConfController@modify');
 });
 
 Route::get('validate_code/create','Service\ValidateController@create');
-//Route::any('/crypt','Admin\LoginController@crypt');
+Route::any('/crypt','Admin\LoginController@crypt');
